@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="KinovaGen3_7dof_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000773759171088489 5.03451192038207E-05 0.0781497946504042"
+        rpy="0 0 0" />
+      <mass
+        value="1.06210402504826" />
+      <inertia
+        ixx="0.00275580645944217"
+        ixy="-1.14498843158392E-07"
+        ixz="2.81022890242587E-05"
+        iyy="0.00278002724080201"
+        iyz="1.82692375411534E-06"
+        izz="0.00115308400994792" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="6.19950057969137E-05 -0.143400000373684 -0.00263093261982001"
+        rpy="0 0 0" />
+      <mass
+        value="0.00982585415694064" />
+      <inertia
+        ixx="1.08657053065993E-05"
+        ixy="-1.98298628563459E-09"
+        ixz="-3.24573767851845E-14"
+        iyy="1.08677335648405E-05"
+        iyz="3.70077159655297E-14"
+        izz="2.01127048816933E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.14045"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="4" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="6.61540267187233E-05 -0.022697231915146 0.101361460483846"
+        rpy="0 0 0" />
+      <mass
+        value="0.138803764038028" />
+      <inertia
+        ixx="0.000471884338546225"
+        ixy="1.05116261955671E-08"
+        ixz="2.2349382249886E-08"
+        iyy="0.000505568976470095"
+        iyz="-6.37820584699561E-05"
+        izz="0.000195211333122424" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 -0.1434 0"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="4" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="-1.96407999992765E-05 -0.137064919062546 0.01181560375078"
+        rpy="0 0 0" />
+      <mass
+        value="0.137991437916396" />
+      <inertia
+        ixx="0.00106864859686713"
+        ixy="2.29870407676785E-08"
+        ixz="-7.94048431085757E-09"
+        iyy="0.000195209289639823"
+        iyz="7.8742261616416E-05"
+        izz="0.00110091017955911" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="6.19949484593971E-05 -0.010643266132078 0.195600000001"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="4" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="3.00885896968583E-07 0.000165641110284429 0.0762203296199602"
+        rpy="0 0 0" />
+      <mass
+        value="0.354589845647942" />
+      <inertia
+        ixx="0.00049578101585276"
+        ixy="4.24058038481026E-09"
+        ixz="-4.06919872369405E-08"
+        iyy="0.000573539837167109"
+        iyz="-5.7769603185941E-05"
+        izz="0.000228245811174955" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0 -0.2241999999988 -0.0202000000004"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="50"
+      velocity="4" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="-1.43831152051022E-07 -0.0501741646357199 0.00925472403874516"
+        rpy="0 0 0" />
+      <mass
+        value="0.250811316740786" />
+      <inertia
+        ixx="0.000199303006452158"
+        ixy="6.6734948236205E-10"
+        ixz="2.26459278758811E-09"
+        iyy="0.000134419035968503"
+        iyz="2.20817477127893E-05"
+        izz="0.000216053590167048" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0.00840000000039996 0.2203"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="11"
+      velocity="8" />
+  </joint>
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="-9.21504194895117E-08 0.00342189271159801 0.0454104029296107"
+        rpy="0 0 0" />
+      <mass
+        value="0.250812398426006" />
+      <inertia
+        ixx="0.000212733868803611"
+        ixy="-1.47653146955795E-09"
+        ixz="2.81103602723772E-09"
+        iyy="0.000226133206135183"
+        iyz="-3.01573197771483E-05"
+        izz="0.00013776801560932" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 -0.0930999999997995 -0.0120500000004044"
+      rpy="1.57079632679501 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="11"
+      velocity="8" />
+  </joint>
+  <link
+    name="link7">
+    <inertial>
+      <origin
+        xyz="-8.74082201596446E-05 0.176799510917041 0.00264656474175698"
+        rpy="0 0 0" />
+      <mass
+        value="0.53835033861048" />
+      <inertia
+        ixx="0.000311079016957185"
+        ixy="-4.20628526883583E-07"
+        ixz="1.13350457021784E-07"
+        iyy="0.000275828938520973"
+        iyz="-2.88827594988306E-07"
+        izz="0.000365543350499554" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint7"
+    type="revolute">
+    <origin
+      xyz="0 0.0126500000004798 0.379360420095189"
+      rpy="-1.57079632679513 0 0" />
+    <parent
+      link="link6" />
+    <child
+      link="link7" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="11"
+      velocity="8" />
+  </joint>
+  <link
+    name="link_tool">
+    <inertial>
+      <origin
+        xyz="0.075962 0 1.9082E-17"
+        rpy="0 0 0" />
+      <mass
+        value="1.4734E-05" />
+      <inertia
+        ixx="4.0012E-11"
+        ixy="5.6064E-28"
+        ixz="3.1937E-27"
+        iyy="2.3666E-11"
+        iyz="3.4567E-26"
+        izz="2.3666E-11" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link_tool.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://KinovaGen3_7dof_description/meshes/link_tool.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_tool"
+    type="revolute">
+    <origin
+      xyz="-0.00028751 0.010513 0.0002"
+      rpy="0 0 0" />
+    <parent
+      link="link7" />
+    <child
+      link="link_tool" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="10"
+      velocity="10" />
+  </joint>
+</robot>

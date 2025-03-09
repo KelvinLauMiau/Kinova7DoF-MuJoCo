@@ -2,7 +2,6 @@ import numpy as np
 
 from pinocchio_dynamic_solver import PinSolver
 
-
 class JntImpedance:
     def __init__(
             self,

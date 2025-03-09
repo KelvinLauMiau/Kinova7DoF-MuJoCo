@@ -1,0 +1,182 @@
+<mujoco model="Kinova_description">
+  <compiler angle="radian" meshdir="meshes"/>
+  <option timestep="0.001" gravity="0 0 -9.81">
+    <flag contact="enable" energy="enable" gravity="enable"/>
+  </option>
+
+  <asset>
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="link1" file="link1.STL"/>
+    <mesh name="link2" file="link2.STL"/>
+    <mesh name="link3" file="link3.STL"/>
+    <mesh name="link4" file="link4.STL"/>
+    <mesh name="link5" file="link5.STL"/>
+    <mesh name="link6" file="link6.STL"/>
+    <mesh name="link7" file="link7.STL"/>
+    <mesh name="link_tool" file="link_tool.STL"/>
+
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4"
+             rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <!-- 地面：与所有对象发生碰撞 -->
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" contype="1" conaffinity="15"/>
+
+    <!-- Actual Arm: 主臂（原色、不透明），开启碰撞 -->
+    <body name="actual_arm" pos="0 0 0">
+      <geom name="actual_base" type="mesh" rgba="0.79216 0.81961 0.93333 1" mesh="base_link" contype="2" conaffinity="3"/>
+      <body name="actual_link1" pos="0 0 0.14045" quat="0.707105 -0.707108 0 0">
+        <inertial pos="6.1995e-05 -0.088531 0.0047529" quat="-1.44437e-05 0.707107 1.44437e-05 0.707107" mass="0.31045" diaginertia="0.0002106 0.00020135 0.00015281"/>
+        <joint name="actual_joint1" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+        <geom name="actual_link1_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link1" contype="2" conaffinity="3"/>
+        <body name="actual_link2" pos="0 -0.1434 0" quat="0.707105 0.707108 0 0">
+          <inertial pos="6.3307e-05 -0.017418 0.098831" quat="0.703768 -0.0688656 0.0687912 0.70373" mass="0.43942" diaginertia="0.000708647 0.00061383 0.000373093"/>
+          <joint name="actual_joint2" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-40 40" damping="0.1" frictionloss="0.1"/>
+          <geom name="actual_link2_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link2" contype="2" conaffinity="3"/>
+          <body name="actual_link3" pos="6.1995e-05 -0.010643 0.1956" quat="0.707105 -0.707108 0 0">
+            <inertial pos="-6.1791e-06 -0.12985 0.0066902" quat="0.521026 0.478015 -0.478033 0.521074" mass="0.43861" diaginertia="0.00129819 0.0012106 0.000378895"/>
+            <joint name="actual_joint3" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+            <geom name="actual_link3_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link3" contype="2" conaffinity="3"/>
+            <body name="actual_link4" pos="0 -0.2242 -0.0202" quat="0.707105 0.707108 0 0">
+              <inertial pos="3.0089e-07 0.00016564 0.07622" quat="0.704851 -0.0569735 0.057067 0.704757" mass="0.35459" diaginertia="0.000582949 0.00049578 0.000218841"/>
+              <joint name="actual_joint4" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+              <geom name="actual_link4_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link4" contype="2" conaffinity="3"/>
+              <body name="actual_link5" pos="0 0.0084 0.2203" quat="0.707105 -0.707108 0 0">
+                <inertial pos="-1.4448e-07 -0.050174 0.0092547" quat="0.558024 0.434353 -0.434307 0.557965" mass="0.25081" diaginertia="0.000221641 0.0001993 0.000128829"/>
+                <joint name="actual_joint5" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                <geom name="actual_link5_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link5" contype="2" conaffinity="3"/>
+                <body name="actual_link6" pos="0 -0.0931 -0.01205" quat="0.707105 0.707108 0 0">
+                  <inertial pos="-9.215e-08 0.0034219 0.04541" quat="0.699159 -0.105489 0.105481 0.69923" mass="0.25081" diaginertia="0.000235441 0.00021273 0.000128459"/>
+                  <joint name="actual_joint6" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                  <geom name="actual_link6_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link6" contype="2" conaffinity="3"/>
+                  <body name="actual_link7" pos="0 0.01265 0.1178" quat="0.707105 -0.707108 0 0">
+                    <inertial pos="-8.73971e-05 -0.0847593 0.0026466" quat="0.479692 0.520877 -0.519207 0.478546" mass="0.53835" diaginertia="0.00148817 0.00143431 0.000276427"/>
+                    <joint name="actual_joint7" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                    <geom name="actual_link7_geom" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link7" contype="2" conaffinity="3"/>
+                    <geom name="actual_tool" pos="0 -0.26156 0" quat="1 0 0 0" type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="link_tool" contype="2" conaffinity="3"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- Path Arm: 半透明蓝色（alpha=0.5），用于路径展示，只与自身和地面发生碰撞 -->
+    <body name="path_arm" pos="0 0 0">
+      <geom name="path_base" type="mesh" rgba="0.79216 0.81961 0.93333 0.3" mesh="base_link" contype="4" conaffinity="5"/>
+      <body name="path_link1" pos="0 0 0.14045" quat="0.707105 -0.707108 0 0">
+        <inertial pos="6.1995e-05 -0.088531 0.0047529" quat="-1.44437e-05 0.707107 1.44437e-05 0.707107" mass="0.31045" diaginertia="0.0002106 0.00020135 0.00015281"/>
+        <joint name="path_joint1" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+        <geom name="path_link1_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link1" contype="4" conaffinity="5"/>
+        <body name="path_link2" pos="0 -0.1434 0" quat="0.707105 0.707108 0 0">
+          <inertial pos="6.3307e-05 -0.017418 0.098831" quat="0.703768 -0.0688656 0.0687912 0.70373" mass="0.43942" diaginertia="0.000708647 0.00061383 0.000373093"/>
+          <joint name="path_joint2" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-40 40" damping="0.1" frictionloss="0.1"/>
+          <geom name="path_link2_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link2" contype="4" conaffinity="5"/>
+          <body name="path_link3" pos="6.1995e-05 -0.010643 0.1956" quat="0.707105 -0.707108 0 0">
+            <inertial pos="-6.1791e-06 -0.12985 0.0066902" quat="0.521026 0.478015 -0.478033 0.521074" mass="0.43861" diaginertia="0.00129819 0.0012106 0.000378895"/>
+            <joint name="path_joint3" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+            <geom name="path_link3_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link3" contype="4" conaffinity="5"/>
+            <body name="path_link4" pos="0 -0.2242 -0.0202" quat="0.707105 0.707108 0 0">
+              <inertial pos="3.0089e-07 0.00016564 0.07622" quat="0.704851 -0.0569735 0.057067 0.704757" mass="0.35459" diaginertia="0.000582949 0.00049578 0.000218841"/>
+              <joint name="path_joint4" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+              <geom name="path_link4_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link4" contype="4" conaffinity="5"/>
+              <body name="path_link5" pos="0 0.0084 0.2203" quat="0.707105 -0.707108 0 0">
+                <inertial pos="-1.4448e-07 -0.050174 0.0092547" quat="0.558024 0.434353 -0.434307 0.557965" mass="0.25081" diaginertia="0.000221641 0.0001993 0.000128829"/>
+                <joint name="path_joint5" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                <geom name="path_link5_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link5" contype="4" conaffinity="5"/>
+                <body name="path_link6" pos="0 -0.0931 -0.01205" quat="0.707105 0.707108 0 0">
+                  <inertial pos="-9.215e-08 0.0034219 0.04541" quat="0.699159 -0.105489 0.105481 0.69923" mass="0.25081" diaginertia="0.000235441 0.00021273 0.000128459"/>
+                  <joint name="path_joint6" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                  <geom name="path_link6_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link6" contype="4" conaffinity="5"/>
+                  <body name="path_link7" pos="0 0.01265 0.1178" quat="0.707105 -0.707108 0 0">
+                    <inertial pos="-8.73971e-05 -0.0847593 0.0026466" quat="0.479692 0.520877 -0.519207 0.478546" mass="0.53835" diaginertia="0.00148817 0.00143431 0.000276427"/>
+                    <joint name="path_joint7" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                    <geom name="path_link7_geom" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link7" contype="4" conaffinity="5"/>
+                    <geom name="path_tool" pos="0 -0.26156 0" quat="1 0 0 0" type="mesh" rgba="0.75294 0.75294 0.75294 0.3" mesh="link_tool" contype="4" conaffinity="5"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- Target Arm: 半透明橙色（RGBA=1 0.5 0 0.5），用于目标姿态指示，只与自身和地面发生碰撞 -->
+    <body name="target_arm" pos="0 0 0">
+      <geom name="target_base" type="mesh" rgba="1 0.5 0 0.3" mesh="base_link" contype="8" conaffinity="9"/>
+      <body name="target_link1" pos="0 0 0.14045" quat="0.707105 -0.707108 0 0">
+        <inertial pos="6.1995e-05 -0.088531 0.0047529" quat="-1.44437e-05 0.707107 1.44437e-05 0.707107" mass="0.31045" diaginertia="0.0002106 0.00020135 0.00015281"/>
+        <joint name="target_joint1" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+        <geom name="target_link1_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link1" contype="8" conaffinity="9"/>
+        <body name="target_link2" pos="0 -0.1434 0" quat="0.707105 0.707108 0 0">
+          <inertial pos="6.3307e-05 -0.017418 0.098831" quat="0.703768 -0.0688656 0.0687912 0.70373" mass="0.43942" diaginertia="0.000708647 0.00061383 0.000373093"/>
+          <joint name="target_joint2" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-40 40" damping="0.1" frictionloss="0.1"/>
+          <geom name="target_link2_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link2" contype="8" conaffinity="9"/>
+          <body name="target_link3" pos="6.1995e-05 -0.010643 0.1956" quat="0.707105 -0.707108 0 0">
+            <inertial pos="-6.1791e-06 -0.12985 0.0066902" quat="0.521026 0.478015 -0.478033 0.521074" mass="0.43861" diaginertia="0.00129819 0.0012106 0.000378895"/>
+            <joint name="target_joint3" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+            <geom name="target_link3_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link3" contype="8" conaffinity="9"/>
+            <body name="target_link4" pos="0 -0.2242 -0.0202" quat="0.707105 0.707108 0 0">
+              <inertial pos="3.0089e-07 0.00016564 0.07622" quat="0.704851 -0.0569735 0.057067 0.704757" mass="0.35459" diaginertia="0.000582949 0.00049578 0.000218841"/>
+              <joint name="target_joint4" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-30 30" damping="0.1" frictionloss="0.1"/>
+              <geom name="target_link4_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link4" contype="8" conaffinity="9"/>
+              <body name="target_link5" pos="0 0.0084 0.2203" quat="0.707105 -0.707108 0 0">
+                <inertial pos="-1.4448e-07 -0.050174 0.0092547" quat="0.558024 0.434353 -0.434307 0.557965" mass="0.25081" diaginertia="0.000221641 0.0001993 0.000128829"/>
+                <joint name="target_joint5" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                <geom name="target_link5_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link5" contype="8" conaffinity="9"/>
+                <body name="target_link6" pos="0 -0.0931 -0.01205" quat="0.707105 0.707108 0 0">
+                  <inertial pos="-9.215e-08 0.0034219 0.04541" quat="0.699159 -0.105489 0.105481 0.69923" mass="0.25081" diaginertia="0.000235441 0.00021273 0.000128459"/>
+                  <joint name="target_joint6" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                  <geom name="target_link6_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link6" contype="8" conaffinity="9"/>
+                  <body name="target_link7" pos="0 0.01265 0.1178" quat="0.707105 -0.707108 0 0">
+                    <inertial pos="-8.73971e-05 -0.0847593 0.0026466" quat="0.479692 0.520877 -0.519207 0.478546" mass="0.53835" diaginertia="0.00148817 0.00143431 0.000276427"/>
+                    <joint name="target_joint7" pos="0 0 0" axis="0 -1 0" range="-3.14 3.14" actuatorfrcrange="-9 9" damping="0.1" frictionloss="0.1"/>
+                    <geom name="target_link7_geom" type="mesh" rgba="1 0.5 0 0.3" mesh="link7" contype="8" conaffinity="9"/>
+                    <geom name="target_tool" pos="0 -0.26156 0" quat="1 0 0 0" type="mesh" rgba="1 0.5 0 0.3" mesh="link_tool" contype="8" conaffinity="9"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- Actuator definitions：为三组机械臂各自提供独立控制 -->
+  <actuator>
+    <!-- Actual Arm actuators -->
+    <motor name="actual_a1" ctrllimited="true" ctrlrange="-36.0 36.0" joint="actual_joint1"/>
+    <motor name="actual_a2" ctrllimited="true" ctrlrange="-36.0 36.0" joint="actual_joint2"/>
+    <motor name="actual_a3" ctrllimited="true" ctrlrange="-36.0 36.0" joint="actual_joint3"/>
+    <motor name="actual_a4" ctrllimited="true" ctrlrange="-36.0 36.0" joint="actual_joint4"/>
+    <motor name="actual_a5" ctrllimited="true" ctrlrange="-9.8 9.8" joint="actual_joint5"/>
+    <motor name="actual_a6" ctrllimited="true" ctrlrange="-9.8 9.8" joint="actual_joint6"/>
+    <motor name="actual_a7" ctrllimited="true" ctrlrange="-9.8 9.8" joint="actual_joint7"/>
+
+    <!-- Path Arm actuators -->
+    <motor name="path_a1" ctrllimited="true" ctrlrange="-36.0 36.0" joint="path_joint1"/>
+    <motor name="path_a2" ctrllimited="true" ctrlrange="-36.0 36.0" joint="path_joint2"/>
+    <motor name="path_a3" ctrllimited="true" ctrlrange="-36.0 36.0" joint="path_joint3"/>
+    <motor name="path_a4" ctrllimited="true" ctrlrange="-36.0 36.0" joint="path_joint4"/>
+    <motor name="path_a5" ctrllimited="true" ctrlrange="-9.8 9.8" joint="path_joint5"/>
+    <motor name="path_a6" ctrllimited="true" ctrlrange="-9.8 9.8" joint="path_joint6"/>
+    <motor name="path_a7" ctrllimited="true" ctrlrange="-9.8 9.8" joint="path_joint7"/>
+
+    <!-- Target Arm actuators -->
+    <motor name="target_a1" ctrllimited="true" ctrlrange="-36.0 36.0" joint="target_joint1"/>
+    <motor name="target_a2" ctrllimited="true" ctrlrange="-36.0 36.0" joint="target_joint2"/>
+    <motor name="target_a3" ctrllimited="true" ctrlrange="-36.0 36.0" joint="target_joint3"/>
+    <motor name="target_a4" ctrllimited="true" ctrlrange="-36.0 36.0" joint="target_joint4"/>
+    <motor name="target_a5" ctrllimited="true" ctrlrange="-9.8 9.8" joint="target_joint5"/>
+    <motor name="target_a6" ctrllimited="true" ctrlrange="-9.8 9.8" joint="target_joint6"/>
+    <motor name="target_a7" ctrllimited="true" ctrlrange="-9.8 9.8" joint="target_joint7"/>
+  </actuator>
+</mujoco>
