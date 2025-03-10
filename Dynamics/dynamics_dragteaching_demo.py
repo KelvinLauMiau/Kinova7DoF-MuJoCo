@@ -10,7 +10,7 @@ class Robot:
 
     def __init__(self, control_freq=20) -> None:
 
-        self.mj_model = mujoco.MjModel.from_xml_path(filename='../Model/Kinova_mjmodel.xml')
+        self.mj_model = mujoco.MjModel.from_xml_path(filename='../Model/ActualArm/Kinova_mjmodel.xml')
         self.mj_data = mujoco.MjData(self.mj_model)
 
         self.viewer = viewer.launch_passive(self.mj_model, self.mj_data)

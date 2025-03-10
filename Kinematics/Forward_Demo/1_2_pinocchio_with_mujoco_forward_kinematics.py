@@ -10,7 +10,7 @@ def main():
     data = model.createData()
 
     # 加载 Mujoco 模型（MJCF）
-    mjcf_path = "../../Model/Kinova_mjmodel.xml"  # 根据你的文件路径修改
+    mjcf_path = "../../Model/ActualArm/Kinova_mjmodel.xml"  # 根据你的文件路径修改
     mj_model = mujoco.MjModel.from_xml_path(mjcf_path)
     mj_data = mujoco.MjData(mj_model)
     mj_viewer = viewer.launch_passive(mj_model, mj_data)

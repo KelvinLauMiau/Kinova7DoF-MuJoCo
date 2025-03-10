@@ -139,7 +139,7 @@ def create_gui():
 def main():
     # 实例化机器人，传入相应模型的路径
     robot = Robot(control_freq=50,
-                  mjcf_path="../../Model/Kinova_mjmodel.xml",
+                  mjcf_path="../../Model/ActualArm/Kinova_mjmodel.xml",
                   urdf_path="../../Kinova_description/urdf/Kinova_description.urdf")
     create_gui()
     step_count = 0

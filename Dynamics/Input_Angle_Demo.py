@@ -11,7 +11,7 @@ class Robot:
             target_angles = np.zeros(7)  # 默认目标关节位置是零位置
         self.target_angles = target_angles  # 用户输入的目标关节角度
 
-        self.mj_model = mujoco.MjModel.from_xml_path(filename='../Model/Kinova_mjmodel.xml')
+        self.mj_model = mujoco.MjModel.from_xml_path(filename='../Model/ActualArm/Kinova_mjmodel.xml')
         self.mj_data = mujoco.MjData(self.mj_model)
 
         self.viewer = viewer.launch_passive(self.mj_model, self.mj_data)

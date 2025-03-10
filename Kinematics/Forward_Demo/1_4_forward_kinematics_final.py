@@ -56,7 +56,7 @@ def main():
     pin_data = pin_model.createData()
 
     # 加载 Mujoco 模型（MJCF 文件路径）
-    mjcf_path = "../../Model/Kinova_mjmodel.xml"  # 请确保路径正确
+    mjcf_path = "../../Model/ActualArm/Kinova_mjmodel.xml"  # 请确保路径正确
     mj_model = mujoco.MjModel.from_xml_path(mjcf_path)
     mj_data = mujoco.MjData(mj_model)
     mj_viewer = viewer.launch_passive(mj_model, mj_data)
