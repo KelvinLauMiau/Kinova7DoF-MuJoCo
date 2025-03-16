@@ -9,15 +9,17 @@ This project is based on a Kinova robotic arm URDF converted to an MJCF format f
 
 It is recommended to use a conda environment. Here is an example of creating a new environment.
 ```shell
-conda create --name Mujoco-Kinova python=3.12
+conda create --name Mujoco-Kinova python=3.10
 conda activate Mujoco-Kinova
+
+python.exe -m pip install --upgrade pip setuptools wheel
 ```
 The corresponding dependencies need to be installed below; if all goes well, these two lines of commands should be sufficient.
 ```shell
 # conda install pinocchio
 conda install pinocchio -c conda-forge
 # python requirements
-pip install  mujoco dearpygui scipy numpy pandas matplotlib scikit-learn -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install  mujoco dearpygui scipy numpy pandas matplotlib scikit-learn PyQt6 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 
