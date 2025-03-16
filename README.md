@@ -3,7 +3,7 @@
 
 This project is based on a Kinova robotic arm URDF converted to an MJCF format for MuJoCo simulation. It integrates Pinocchio for dynamic computations and develops demos for kinematics, trajectory interpolation, and control. The goal is to create a MuJoCo-based, cross-platform equivalent of MoveIt! for comprehensive motion planning and control.
 
-![img.png](Assets/img.png)
+![img.png](Assets/0_Cover_Image.png)
 
 ## Setup Your Environments
 
@@ -22,4 +22,11 @@ conda install pinocchio -c conda-forge
 pip install  mujoco dearpygui scipy numpy pandas matplotlib scikit-learn PyQt6 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
+## Latest Update
 
+#### 25.03.11
+In file ./Kinematics/Inverse_Demo/1_5_inverse_impedance_control.py, achieved together control of least_square based Kinematics and Pinocchio Dynamics
+
+Further research will be conducted on 7-dof issue of multiple analytical solutions.
+
+![img.png](Assets/1_5_inverse_impedance_control.png)
